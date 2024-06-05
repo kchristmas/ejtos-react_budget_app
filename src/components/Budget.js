@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../context/AppContext';
+import { ExpenseTotal } from 'ExpenseTotal';
 
 const Budget = () => {
     const { budget , dispatch } = useContext(AppContext);
@@ -12,22 +13,19 @@ const Budget = () => {
             alert("The value cannot exceed £20,000");
                 setNewBudget("");
                 return;
-        } else if (updatedBudget< totalExpenses){
-           alert("You don't have the budget for that");
+        } else if (updatedBudget < ExpenseTotal){
+           alert("You can't budget less than what is already allocated.");
             return;
         } else {
         setNewBudget(updatedBudget);
-        dispatch({
-            type:"SET_BUDGET",
-            payload: updatedBudget,
+        dispatch ({
+            type: "SET_BUDGET",
+            payload: updatedBudget, // I THINK this is right? I found the reducer in AppContext, might be diff payload
         })
-        };    
-        useEffect(() =>{
-            setNewBudget(budget);
-        }, [budget]);
+        }
     return (
 <div className='alert alert-secondary'>
-<span>Budget: £{budget}</span>
+<span>Budget: {CurrencySelection}{budget}</span>
 <input type="number" step="10" value={newBudget} onChange={handleBudgetChange()}></input>
 </div>
     );
