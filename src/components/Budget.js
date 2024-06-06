@@ -14,7 +14,7 @@ const Budget = () => {
                 setNewBudget("");
                 return;
         } else if (updatedBudget < ExpenseTotal){
-           alert("You can't budget less than what is already allocated.");
+           alert("You cannot reduce the budget value lower than the spending.");
             return;
         } else {
         setNewBudget(updatedBudget);
