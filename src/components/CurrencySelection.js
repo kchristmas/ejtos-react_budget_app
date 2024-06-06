@@ -1,21 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
-const CurrencySelection = (props) => {
-    const { dispatch,remaining  } = useContext(AppContext);
+const CurrencySelection = () => {
+    const { dispatch } = useContext(AppContext);
+    const [currency, setCurrency] = useState('$');
 
-    const [currency, resetCurrency] = useState('$ Dollars');
-    const [action, setAction] = useState('');
-
-    const setCurrency = (event) => {
-
-        resetCurrency = event.target.value;
-        dispatch ({
-            type: "CHG_CURRENCY",
-            payload: resetCurrency, // I THINK this is right? I found the reducer in AppContext, might be diff payload
-        })
-
-
+    const handleCurrencyChange = (event) => {
+        const selectedCurrency = event.target.value;
+        setCurrency(selectedCurrency);
+            dispatch ({
+                type: "CHG_CURRENCY",
+                payload: selectedCurrency, // I THINK this is right? I found the reducer in AppContext, might be diff payload
+            });
     };
     return (
         <div>
@@ -25,7 +21,7 @@ const CurrencySelection = (props) => {
                     <div className="input-group-currency">
                 <label className="input-group-text" htmlFor="inputGroupSelect01">Department</label>
                   </div>
-                  <select className="custom-select" id="inputGroupSelect01" onChange={(event) => setCurrency(event.target.value)}>
+                  <select className="custom-select" id="inputGroupSelect01" onChange={handleCurrencyChange} value={currency}>
                         <option defaultValue>Choose...</option>
                         <option value="$" name="dollar"> $ Dollar</option>
                         <option value="€" name="euro">€ Euro</option>
