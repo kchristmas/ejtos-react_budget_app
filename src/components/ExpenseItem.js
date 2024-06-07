@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import { TiDelete } from 'react-icons/ti';
 import { AppContext } from '../context/AppContext';
-import currency from './Currency';
 
 const ExpenseItem = (props) => {
-    const { dispatch } = useContext(AppContext);
+    const { dispatch , currency } = useContext(AppContext);
 
     const handleDeleteExpense = () => {
         dispatch({

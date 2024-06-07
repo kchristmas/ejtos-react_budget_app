@@ -15,7 +15,7 @@ const Currency = () => {
             <div className="currencySelectionDropdown">
                 <label style={{marginLeft: "1rem", backgroundColor: "#93e499", color: "white"}}>Currency
                   <select name="currency" id="currency" onChange={(event)=>handleCurrencyChange(event.target.value)}>
-                        <option value="">Currency</option>
+                        <option value="">choose...</option>
                         <option value="$" name="dollar"> $ Dollar</option>
                         <option value="€" name="euro">€ Euro</option>
                         <option value="£" name="pound">£ Pound</option>
