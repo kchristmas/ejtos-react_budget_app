@@ -13,8 +13,8 @@ const Currency = () => {
     return (
         <div>
             <div className="currencySelectionDropdown">
-                <label style={{marginLeft: "1rem", backgroundColor: "#93e499", color: "white"}}>Currency
-                  <select name="currency" id="currency" onChange={(event)=>handleCurrencyChange(event.target.value)}>
+                <label style={{marginLeft: "1rem", backgroundColor: "#7fb28f", color: "white"}}>Currency
+                  <select name="currency" id="currency" onChange={(event)=>handleCurrencyChange(event.target.value)} style={{backgroundColor: "#7fb28f", color: "white"}}>
                         <option value="">choose...</option>
                         <option value="$" name="dollar"> $ Dollar</option>
                         <option value="€" name="euro">€ Euro</option>
